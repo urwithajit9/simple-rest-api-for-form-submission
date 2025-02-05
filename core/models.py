@@ -26,11 +26,15 @@ class UserData(models.Model):
         return self.name
 
 
-# this is not real user registration but just to do CRUD operation from front end.
+# this is not real user registration
+# but just to do CRUD operation from front end.
 class RegisterUser(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128, validators=[MinLengthValidator(6)])
+    password = models.CharField(
+        max_length=128,
+        validators=[MinLengthValidator(6)],
+    )
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     salary = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 

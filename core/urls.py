@@ -6,7 +6,7 @@ from .views import UserViewSet, CheckEmailViewSet, RegisterUserViewSet
 router = DefaultRouter()
 router.register(r"users", UserViewSet, basename="user")
 router.register(r"registeruser", RegisterUserViewSet, basename="registeruser")
-# router.register(r"check-email", CheckEmailViewSet.as_view(), basename="check-email")
+
 
 urlpatterns = [
     path("", include(router.urls)),  # Include router URLs
