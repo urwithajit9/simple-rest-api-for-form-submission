@@ -1,0 +1,85 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+*.venv
+Pipfile.lock
+poetry.lock
+
+# Django specific
+db.sqlite3
+*.sqlite3
+media/
+*.log
+*.pot
+*.pyc
+
+# Local environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.example
+
+# Django migrations
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (if using frontend in Django project)
+node_modules/
+npm-debug.log
+yarn-error.log
+*.lock
+
+# Compiled files and caches
+dist/
+build/
+*.egg-info/
+*.manifest
+*.spec
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Static and media files
+staticfiles/
+media/
+*.log
+
+# Docker files
+*.pid
+*.tar
+*.bak
+logs/
+
+# MySQL / Postgres / SQLite data
+*.sql
+*.sqlite3
+*.db
+*.pdb
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Pip and dependency management
+pip-log.txt
+pip-delete-this-directory.txt
