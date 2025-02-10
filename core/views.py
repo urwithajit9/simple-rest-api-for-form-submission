@@ -83,5 +83,6 @@ class CheckEmailViewSet(APIView):
             )
 
         # Check if the email exists in the database
-        is_available = not UserData.objects.filter(email=email).exists()
+        is_available = not RegisterUser.objects.filter(email=email).exists()
+        print(is_available)
         return Response({"isAvailable": is_available}, status=status.HTTP_200_OK)

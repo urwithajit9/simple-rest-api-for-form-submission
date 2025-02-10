@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "core",
     "rest_framework",
     "corsheaders",
+    "kiip",
 ]
 
 MIDDLEWARE = [
