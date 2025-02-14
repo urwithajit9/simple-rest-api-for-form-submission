@@ -36,6 +36,8 @@ class RegisterUserSearchView(ListAPIView):
                 queryset = queryset.filter(name__icontains=search_query)
             elif search_by == "email":
                 queryset = queryset.filter(email__icontains=search_query)
+            else:
+                queryset = queryset.filter(name__icontains=search_query)
 
         return queryset
 
