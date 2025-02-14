@@ -9,10 +9,35 @@ from .models import UserData, RegisterUser
 from .serializers import UserSerializer, RegisterUserSerializer
 from rest_framework import viewsets
 
+# search
+from rest_framework.generics import ListAPIView
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 class RegisterUserViewSet(viewsets.ModelViewSet):
     queryset = RegisterUser.objects.all()
     serializer_class = RegisterUserSerializer
+
+
+class RegisterUserSearchView(ListAPIView):
+    queryset = RegisterUser.objects.all()
+    serializer_class = RegisterUserSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+
+    # search_fields = ["name", "email"]  # Enable searching by name or email
+    def get_queryset(self):
+        queryset = RegisterUser.objects.all()
+        search_query = self.request.query_params.get("search", "")
+        search_by = self.request.query_params.get("searchBy", "")
+
+        if search_query:
+            if search_by == "name":
+                queryset = queryset.filter(name__icontains=search_query)
+            elif search_by == "email":
+                queryset = queryset.filter(email__icontains=search_query)
+
+        return queryset
 
 
 class UserViewSet(ViewSet):

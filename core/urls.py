@@ -1,6 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import UserViewSet, CheckEmailViewSet, RegisterUserViewSet
+from .views import (
+    UserViewSet,
+    CheckEmailViewSet,
+    RegisterUserViewSet,
+    RegisterUserSearchView,
+)
 
 # Define the router and register the viewset
 router = DefaultRouter()
@@ -11,6 +16,7 @@ router.register(r"registeruser", RegisterUserViewSet, basename="registeruser")
 urlpatterns = [
     path("", include(router.urls)),  # Include router URLs
     path("check-email/", CheckEmailViewSet.as_view(), name="check-email"),
+    path("search-users/", RegisterUserSearchView.as_view(), name="user-search"),
 ]
 
 # /api/registeruser/
