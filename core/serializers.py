@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from drf_queryfields import QueryFieldsMixin
 from .models import UserData, RegisterUser
 
 
@@ -18,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
         ]  # Include 'id' for easy identification
 
 
-class RegisterUserSerializer(serializers.ModelSerializer):
+class RegisterUserSerializer(QueryFieldsMixin, serializers.ModelSerializer):
     class Meta:
         model = RegisterUser
         fields = [
